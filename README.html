@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>claude-code-best-practice</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 id="claude-code-best-practice">claude-code-best-practice</h1>
+<p>from vibe coding to agentic engineering - practice makes claude perfect</p>
+<p><img src="https://img.shields.io/badge/updated_with_Claude_Code-v2.1.183%20(Jun%2020%2C%202026%209%3A37%20AM%20PKT)-white?style=flat&amp;labelColor=555" alt="updated with Claude Code"> <a href="https://github.com/shanraisshan/claude-code-best-practice/stargazers"><img src="https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat&label=%E2%98%85&labelColor=555&color=white" alt="GitHub Stars"></a><br></p>
+<p><a href="best-practice/"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="implementation/"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> <a href="orchestration-workflow/orchestration-workflow.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\orchestration-workflow.svg" alt="Orchestration Workflow"></a> <a href="https://code.claude.com/docs"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Claude"></a> <a href="#-tips-and-tricks"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="#-subscribe"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community.svg" alt="Community"></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\click-badges.svg" alt="Click on these badges below to see the actual sources"><br>
+<img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\a.svg" height="14"> = Agents · <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\c.svg" height="14"> = Commands · <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\s.svg" height="14"> = Skills</p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="Claude Code mascot jumping" width="120" height="100"><br>
+  <a href="https://github.com/trending"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\root\github-trending-day.svg" alt="GitHub Trending #1 Repository Of The Day"></a>
+</p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\root\boris-slider.gif" alt="Boris Cherny on Claude Code" width="600"><br>
+  Boris Cherny on X (<a href="https://x.com/bcherny/status/2007179832300581177">tweet 1</a> · <a href="https://x.com/bcherny/status/2017742741636321619">tweet 2</a> · <a href="https://x.com/bcherny/status/2021699851499798911">tweet 3</a>)
+</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>Visit the <a href="#how-to-use"><strong>How to Use</strong></a> section to take full advantage of this repo.</p>
+</div>
+<h2 id="-concepts">🧠 CONCEPTS</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\a.svg" height="14"> <a href="https://code.claude.com/docs/en/sub-agents"><strong>Subagents</strong></a></td>
+<td><code>.claude/agents/&lt;name&gt;.md</code></td>
+<td><a href="best-practice/claude-subagents.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="implementation/claude-subagents-implementation.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\c.svg" height="14"> <a href="https://code.claude.com/docs/en/slash-commands"><strong>Commands</strong></a></td>
+<td><code>.claude/commands/&lt;name&gt;.md</code></td>
+<td><a href="best-practice/claude-commands.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="implementation/claude-commands-implementation.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\s.svg" height="14"> <a href="https://code.claude.com/docs/en/skills"><strong>Skills</strong></a></td>
+<td><code>.claude/skills/&lt;name&gt;/SKILL.md</code></td>
+<td><a href="best-practice/claude-skills.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="implementation/claude-skills-implementation.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> <a href="https://github.com/anthropics/skills/tree/main/skills">Official Skills</a> · <a href="reports/claude-skills-for-larger-mono-repos.html">Skills for Mono-repos</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/common-workflows"><strong>Workflows</strong></a></td>
+<td><a href=".claude/commands/weather-orchestrator.html"><code>.claude/commands/weather-orchestrator.md</code></a></td>
+<td><a href="orchestration-workflow/orchestration-workflow.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\orchestration-workflow.svg" alt="Orchestration Workflow"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/hooks"><strong>Hooks</strong></a></td>
+<td><code>.claude/hooks/</code></td>
+<td><a href="https://github.com/shanraisshan/claude-code-hooks"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://github.com/shanraisshan/claude-code-hooks"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> <a href="https://code.claude.com/docs/en/hooks-guide">Guide</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/mcp"><strong>MCP Servers</strong></a></td>
+<td><code>.claude/settings.json</code>, <code>.mcp.json</code></td>
+<td><a href="best-practice/claude-mcp.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href=".mcp.json"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/plugins"><strong>Plugins</strong></a></td>
+<td>distributable packages</td>
+<td><a href="https://code.claude.com/docs/en/discover-plugins">Marketplaces</a> · <a href="https://code.claude.com/docs/en/plugin-marketplaces">Create Marketplaces</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/settings"><strong>Settings</strong></a></td>
+<td><code>.claude/settings.json</code></td>
+<td><a href="best-practice/claude-settings.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href=".claude/settings.json"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> <a href="https://code.claude.com/docs/en/permissions">Permissions</a> · <a href="https://code.claude.com/docs/en/model-config">Model Config</a> · <a href="https://code.claude.com/docs/en/output-styles">Output Styles</a> · <a href="https://code.claude.com/docs/en/sandboxing">Sandboxing</a> · <a href="https://code.claude.com/docs/en/keybindings">Keybindings</a> · <a href="https://code.claude.com/docs/en/auto-mode-config">Auto Mode Config</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/statusline"><strong>Status Line</strong></a></td>
+<td><code>.claude/settings.json</code></td>
+<td><a href="https://github.com/shanraisshan/claude-code-status-line"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href=".claude/settings.json"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/memory"><strong>Memory</strong></a></td>
+<td><code>CLAUDE.md</code>, <code>.claude/rules/</code>, <code>~/.claude/rules/</code>, <code>~/.claude/projects/&lt;project&gt;/memory/</code></td>
+<td><a href="best-practice/claude-memory.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="CLAUDE.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> <a href="https://code.claude.com/docs/en/memory">Auto Memory</a> · <a href="reports/claude-agent-memory.html">Auto Memory Deep-dive</a> · <a href="https://code.claude.com/docs/en/memory#organize-rules-with-clauderules">Rules</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/checkpointing"><strong>Checkpointing</strong></a></td>
+<td>automatic (file-edit tracking)</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/cli-reference"><strong>CLI Startup Flags</strong></a></td>
+<td><code>claude [flags]</code></td>
+<td><a href="best-practice/claude-cli-startup-flags.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://code.claude.com/docs/en/interactive-mode">Interactive Mode</a> · <a href="https://code.claude.com/docs/en/env-vars">Env Vars</a></td>
+</tr>
+<tr>
+<td><strong>AI Terms</strong></td>
+<td></td>
+<td><a href="https://github.com/shanraisshan/claude-code-codex-cursor-gemini/blob/main/reports/ai-terms.md"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/best-practices"><strong>Best Practices</strong></a></td>
+<td></td>
+<td><a href="https://github.com/anthropics/prompt-eng-interactive-tutorial">Prompt Engineering</a> · <a href="https://code.claude.com/docs/en/features-overview">Extend Claude Code</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-hot">🔥 Hot</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://code.claude.com/docs/en/ultrareview"><strong>Ultrareview</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>/code-review ultra</code>, <code>claude ultrareview [target]</code></td>
+<td><a href="https://code.claude.com/docs/en/ultrareview#track-a-running-review">Tasks tracking</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/devcontainer"><strong>Devcontainers</strong></a></td>
+<td><code>.devcontainer/</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/channels"><strong>Channels</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>--channels</code>, plugin-based</td>
+<td><a href="https://code.claude.com/docs/en/channels-reference">Reference</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/ultraplan"><strong>Ultraplan</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>/ultraplan</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/fullscreen"><strong>No Flicker Mode</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>/tui fullscreen</code>, <code>CLAUDE_CODE_NO_FLICKER=1</code></td>
+<td><a href="https://x.com/bcherny/status/2039421575422980329"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode"><strong>Auto Mode</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>--permission-mode auto</code>, <code>Shift+Tab</code></td>
+<td><a href="https://x.com/claudeai/status/2036503582166393240"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://claude.com/blog/auto-mode">Blog</a></td>
+</tr>
+<tr>
+<td><a href="best-practice/claude-power-ups.html"><strong>Power-ups</strong></a></td>
+<td><code>/powerup</code></td>
+<td><a href="best-practice/claude-power-ups.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/fast-mode"><strong>Fast Mode</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>/fast</code>, <code>&quot;fastMode&quot;: true</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/advisor"><strong>Advisor</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>/advisor</code>, <code>advisorModel</code>, <code>--advisor</code></td>
+<td><a href="https://claude.com/blog/the-advisor-strategy">Blog</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/computer-use"><strong>Computer Use</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>computer-use</code> MCP server</td>
+<td><a href="https://code.claude.com/docs/en/desktop#let-claude-use-your-computer">Desktop</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/agent-sdk/overview"><strong>Agent SDK</strong></a></td>
+<td><code>npm</code> / <code>pip</code> package</td>
+<td><a href="https://code.claude.com/docs/en/agent-sdk/quickstart">Quickstart</a> · <a href="https://github.com/anthropics/claude-agent-sdk-demos">Examples</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum"><strong>Ralph Wiggum Loop</strong></a></td>
+<td>plugin</td>
+<td><a href="https://github.com/ghuntley/how-to-ralph-wiggum"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://github.com/shanraisshan/ralph-wiggum-self-evolving-loop"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/chrome"><strong>Chrome</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>--chrome</code>, extension</td>
+<td><a href="reports/claude-in-chrome-v-chrome-devtools-mcp.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/claude-code-on-the-web"><strong>Claude Code Web</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>claude.ai/code</code></td>
+<td><a href="https://code.claude.com/docs/en/routines">Routines</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/slack"><strong>Slack</strong></a></td>
+<td><code>@Claude</code> in Slack</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/code-review"><strong>Code Review</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td>GitHub App (managed)</td>
+<td><a href="https://x.com/claudeai/status/2031088171262554195"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://claude.com/blog/code-review">Blog</a> <a href="https://code.claude.com/docs/en/commands">Local /code-review</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/github-actions"><strong>GitHub Actions</strong></a></td>
+<td><code>.github/workflows/</code></td>
+<td><a href="https://code.claude.com/docs/en/gitlab-ci-cd">GitLab CI/CD</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/remote-control"><strong>Remote Control</strong></a></td>
+<td><code>/remote-control</code>, <code>/rc</code></td>
+<td><a href="https://x.com/noahzweben/status/2032533699116355819"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://code.claude.com/docs/en/headless">Headless Mode</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/deep-links"><strong>Deep Links</strong></a></td>
+<td><code>claude-cli://open?repo=…&amp;q=…</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/workflows"><strong>Dynamic Workflows</strong></a></td>
+<td><code>/workflows</code>, <code>ultracode</code> keyword, <code>/effort ultracode</code>, <code>.claude/workflows/</code></td>
+<td><a href="https://code.claude.com/docs/en/workflows#run-a-bundled-workflow">Deep Research</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/agent-teams"><strong>Agent Teams</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td>built-in (env var)</td>
+<td><a href="https://x.com/bcherny/status/2019472394696683904"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="implementation/claude-agent-teams-implementation.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/agent-view"><strong>Agent View</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>claude agents</code>, <code>--bg</code>, <code>/bg</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/scheduled-tasks"><strong>Scheduled Tasks</strong></a></td>
+<td><code>/loop</code>, <code>/schedule</code>, cron tools</td>
+<td><a href="https://x.com/bcherny/status/2030193932404150413"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="implementation/claude-scheduled-tasks-implementation.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> <a href="https://code.claude.com/docs/en/desktop-scheduled-tasks">Desktop scheduled tasks</a> · <a href="https://x.com/noahzweben/status/2036129220959805859">Announcement</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/routines"><strong>Routines</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>claude.ai/code/routines</code>, <code>/schedule</code></td>
+<td><a href="https://code.claude.com/docs/en/desktop-scheduled-tasks">Desktop Tasks</a></td>
+</tr>
+<tr>
+<td><a href="reports/claude-global-vs-project-settings.html#tasks-system"><strong>Tasks</strong></a></td>
+<td><code>/tasks</code>, <code>~/.claude/tasks/</code></td>
+<td><a href="reports/claude-global-vs-project-settings.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a> <a href="https://code.claude.com/docs/en/ultrareview#track-a-running-review">Ultrareview tracking</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/goal"><strong>Goal</strong></a></td>
+<td><code>/goal &lt;condition&gt;</code>, <code>/goal clear</code></td>
+<td><a href="implementation/claude-goal-implementation.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/voice-dictation"><strong>Voice Dictation</strong></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\beta.svg" alt="beta"></td>
+<td><code>/voice</code></td>
+<td><a href="https://x.com/trq212/status/2028628570692890800"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/skills#bundled-skills"><strong>Bundled Skills</strong></a></td>
+<td><code>/code-review</code>, <code>/batch</code></td>
+<td><a href="https://x.com/bcherny/status/2027534984534544489"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/worktrees"><strong>Git Worktrees</strong></a></td>
+<td><code>--worktree</code>/<code>-w</code>, <code>.worktreeinclude</code>, <code>EnterWorktree</code>/<code>ExitWorktree</code>, <code>isolation: &quot;worktree&quot;</code>, <code>WorktreeCreate</code>/<code>WorktreeRemove</code> hooks</td>
+<td><a href="https://x.com/bcherny/status/2025007393290272904"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\best-practice.svg" alt="Best Practice"></a></td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<p><a id="orchestration-workflow"></a></p>
+<h2 id=""><a href="orchestration-workflow/orchestration-workflow.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\orchestration-workflow-hd.svg" alt="Orchestration Workflow"></a></h2>
+<p>See <a href="orchestration-workflow/orchestration-workflow.html">orchestration-workflow</a> for implementation details of <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\c.svg" height="14"> <strong>Command</strong> → <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\a.svg" height="14"> <strong>Agent</strong> → <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\s.svg" height="14"> <strong>Skill</strong> pattern.</p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\orchestration-workflow\orchestration-workflow.svg" alt="Command Skill Agent Architecture Flow" width="100%">
+</p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\orchestration-workflow\orchestration-workflow.gif" alt="Orchestration Workflow Demo" width="600">
+</p>
+<p><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\how-to-use.svg" alt="How to Use"></p>
+<pre><code class="language-bash">claude
+/weather-orchestrator
+</code></pre>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="️-development-workflows">⚙️ DEVELOPMENT WORKFLOWS</h2>
+<p>All major workflows converge on the same architectural pattern: <strong>Research → Plan → Execute → Review → Ship</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>★</th>
+<th>Workflow</th>
+<th><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\a.svg" height="14"></th>
+<th><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\c.svg" height="14"></th>
+<th><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\s.svg" height="14"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/obra/superpowers">Superpowers</a></td>
+<td>233k</td>
+<td><img src="https://img.shields.io/badge/brainstorming-ddf4ff" alt="brainstorming" align="middle"> → <img src="https://img.shields.io/badge/using--git--worktrees-ddf4ff" alt="using-git-worktrees" align="middle"> → <img src="https://img.shields.io/badge/writing--plans-ddf4ff" alt="writing-plans" align="middle"> → <img src="https://img.shields.io/badge/subagent--driven--development-ddf4ff" alt="subagent-driven-development" align="middle"> → <img src="https://img.shields.io/badge/implementer-fff3b0" alt="implementer" align="middle"> → <img src="https://img.shields.io/badge/task--reviewer-fff3b0" alt="task-reviewer" align="middle"> → <img src="https://img.shields.io/badge/test--driven--development-fff3b0" alt="test-driven-development" align="middle"> → <img src="https://img.shields.io/badge/requesting--code--review-ddf4ff" alt="requesting-code-review" align="middle"> → <img src="https://img.shields.io/badge/verification--before--completion-ddf4ff" alt="verification-before-completion" align="middle"> → <img src="https://img.shields.io/badge/finishing--a--development--branch-ddf4ff" alt="finishing-a-development-branch" align="middle"></td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+</tr>
+<tr>
+<td><a href="https://github.com/affaan-m/everything-claude-code">Everything Claude Code</a></td>
+<td>218k</td>
+<td><img src="https://img.shields.io/badge/%2Fecc:plan-ddf4ff" alt="/ecc:plan" align="middle"> → <img src="https://img.shields.io/badge/%2Ftdd-ddf4ff" alt="/tdd" align="middle"> → <img src="https://img.shields.io/badge/%2Fcode--review-ddf4ff" alt="/code-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fsecurity--scan-ddf4ff" alt="/security-scan" align="middle"> → <img src="https://img.shields.io/badge/%2Fe2e-ddf4ff" alt="/e2e" align="middle"> → <img src="https://img.shields.io/badge/merge-ddf4ff" alt="merge" align="middle"></td>
+<td>67</td>
+<td>84</td>
+<td>271</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattpocock/skills">Matt Pocock Skills</a></td>
+<td>137k</td>
+<td><img src="https://img.shields.io/badge/%2Fask--matt-ddf4ff" alt="/ask-matt" align="middle"> → <img src="https://img.shields.io/badge/%2Fgrill--with--docs-ddf4ff" alt="/grill-with-docs" align="middle"> → <img src="https://img.shields.io/badge/%2Fto--prd-ddf4ff" alt="/to-prd" align="middle"> → <img src="https://img.shields.io/badge/%2Fto--issues-ddf4ff" alt="/to-issues" align="middle"> → <img src="https://img.shields.io/badge/%2Fprototype-ddf4ff" alt="/prototype" align="middle"> → <img src="https://img.shields.io/badge/%2Ftriage-ddf4ff" alt="/triage" align="middle"> → <img src="https://img.shields.io/badge/%2Ftdd-fff3b0" alt="/tdd" align="middle"> → <img src="https://img.shields.io/badge/%2Fdiagnosing--bugs-fff3b0" alt="/diagnosing-bugs" align="middle"> → <img src="https://img.shields.io/badge/%2Fimprove--codebase--architecture-ddf4ff" alt="/improve-codebase-architecture" align="middle"> → <img src="https://img.shields.io/badge/%2Fhandoff-ddf4ff" alt="/handoff" align="middle"></td>
+<td>0</td>
+<td>0</td>
+<td>34</td>
+</tr>
+<tr>
+<td><a href="https://github.com/github/spec-kit">Spec Kit</a></td>
+<td>114k</td>
+<td><img src="https://img.shields.io/badge/%2Fspeckit.constitution-ddf4ff" alt="/speckit.constitution" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.specify-ddf4ff" alt="/speckit.specify" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.clarify-ddf4ff" alt="/speckit.clarify" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.plan-ddf4ff" alt="/speckit.plan" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.tasks-ddf4ff" alt="/speckit.tasks" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.taskstoissues-ddf4ff" alt="/speckit.taskstoissues" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.implement-ddf4ff" alt="/speckit.implement" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.analyze-ddf4ff" alt="/speckit.analyze" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.checklist-ddf4ff" alt="/speckit.checklist" align="middle"> → <img src="https://img.shields.io/badge/%2Fspeckit.converge-ddf4ff" alt="/speckit.converge" align="middle"></td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://github.com/garrytan/gstack">gstack</a></td>
+<td>112k</td>
+<td><img src="https://img.shields.io/badge/%2Foffice--hours-ddf4ff" alt="/office-hours" align="middle"> → <img src="https://img.shields.io/badge/%2Fplan--ceo--review-ddf4ff" alt="/plan-ceo-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fplan--eng--review-fff3b0" alt="/plan-eng-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fplan--design--review-fff3b0" alt="/plan-design-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fplan--devex--review-fff3b0" alt="/plan-devex-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fspec-ddf4ff" alt="/spec" align="middle"> → <img src="https://img.shields.io/badge/%2Fdesign--consultation-fff3b0" alt="/design-consultation" align="middle"> → <img src="https://img.shields.io/badge/%2Freview-ddf4ff" alt="/review" align="middle"> → <img src="https://img.shields.io/badge/%2Fqa-ddf4ff" alt="/qa" align="middle"> → <img src="https://img.shields.io/badge/%2Fship-ddf4ff" alt="/ship" align="middle"> → <img src="https://img.shields.io/badge/%2Fland--and--deploy-ddf4ff" alt="/land-and-deploy" align="middle"> → <img src="https://img.shields.io/badge/%2Fcanary-ddf4ff" alt="/canary" align="middle"> → <img src="https://img.shields.io/badge/%2Fretro-ddf4ff" alt="/retro" align="middle"></td>
+<td>0</td>
+<td>0</td>
+<td>53</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gsd-build/get-shit-done">Get Shit Done</a></td>
+<td>64k</td>
+<td><img src="https://img.shields.io/badge/%2Fgsd--new--project-ddf4ff" alt="/gsd-new-project" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--spec--phase-ddf4ff" alt="/gsd-spec-phase" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--plan--phase-ddf4ff" alt="/gsd-plan-phase" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--execute--phase-ddf4ff" alt="/gsd-execute-phase" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--code--review-fff3b0" alt="/gsd-code-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--validate--phase-fff3b0" alt="/gsd-validate-phase" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--ship-ddf4ff" alt="/gsd-ship" align="middle"> → <img src="https://img.shields.io/badge/%2Fgsd--extract--learnings-ddf4ff" alt="/gsd-extract-learnings" align="middle"></td>
+<td>33</td>
+<td>67</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://github.com/addyosmani/agent-skills">agent-skills</a></td>
+<td>61k</td>
+<td><img src="https://img.shields.io/badge/%2Fspec-ddf4ff" alt="/spec" align="middle"> → <img src="https://img.shields.io/badge/%2Fplan-ddf4ff" alt="/plan" align="middle"> → <img src="https://img.shields.io/badge/%2Fbuild-ddf4ff" alt="/build" align="middle"> → <img src="https://img.shields.io/badge/%2Ftest-ddf4ff" alt="/test" align="middle"> → <img src="https://img.shields.io/badge/%2Freview-ddf4ff" alt="/review" align="middle"> → <img src="https://img.shields.io/badge/%2Fship-ddf4ff" alt="/ship" align="middle"></td>
+<td>3</td>
+<td>7</td>
+<td>21</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Fission-AI/OpenSpec">OpenSpec</a></td>
+<td>56k</td>
+<td><img src="https://img.shields.io/badge/%2Fopsx:propose-ddf4ff" alt="/opsx:propose" align="middle"> → <img src="https://img.shields.io/badge/%2Fopsx:apply-fff3b0" alt="/opsx:apply" align="middle"> → <img src="https://img.shields.io/badge/%2Fopsx:verify-fff3b0" alt="/opsx:verify" align="middle"> → <img src="https://img.shields.io/badge/%2Fopsx:archive-ddf4ff" alt="/opsx:archive" align="middle"> → <img src="https://img.shields.io/badge/%2Fopsx:bulk--archive-ddf4ff" alt="/opsx:bulk-archive" align="middle"></td>
+<td>0</td>
+<td>11</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMAD-METHOD</a></td>
+<td>49k</td>
+<td><img src="https://img.shields.io/badge/bmad--product--brief-ddf4ff" alt="bmad-product-brief" align="middle"> → <img src="https://img.shields.io/badge/bmad--prfaq-fff3b0" alt="bmad-prfaq" align="middle"> → <img src="https://img.shields.io/badge/bmad--create--prd-ddf4ff" alt="bmad-create-prd" align="middle"> → <img src="https://img.shields.io/badge/bmad--validate--prd-fff3b0" alt="bmad-validate-prd" align="middle"> → <img src="https://img.shields.io/badge/bmad--create--architecture-ddf4ff" alt="bmad-create-architecture" align="middle"> → <img src="https://img.shields.io/badge/bmad--check--implementation--readiness-ddf4ff" alt="bmad-check-implementation-readiness" align="middle"> → <img src="https://img.shields.io/badge/bmad--create--epics--and--stories-ddf4ff" alt="bmad-create-epics-and-stories" align="middle"> → <img src="https://img.shields.io/badge/bmad--dev--story-fff3b0" alt="bmad-dev-story" align="middle"> → <img src="https://img.shields.io/badge/bmad--code--review-fff3b0" alt="bmad-code-review" align="middle"> → <img src="https://img.shields.io/badge/bmad--qa--generate--e2e--tests-ddf4ff" alt="bmad-qa-generate-e2e-tests" align="middle"> → <img src="https://img.shields.io/badge/bmad--retrospective-ddf4ff" alt="bmad-retrospective" align="middle"></td>
+<td>6</td>
+<td>0</td>
+<td>42</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Yeachan-Heo/oh-my-claudecode">oh-my-claudecode</a></td>
+<td>37k</td>
+<td><img src="https://img.shields.io/badge/team--plan-ddf4ff" alt="team-plan" align="middle"> → <img src="https://img.shields.io/badge/team--prd-ddf4ff" alt="team-prd" align="middle"> → <img src="https://img.shields.io/badge/team--exec-ddf4ff" alt="team-exec" align="middle"> → <img src="https://img.shields.io/badge/team--verify-ddf4ff" alt="team-verify" align="middle"> → <img src="https://img.shields.io/badge/team--fix-fff3b0" alt="team-fix" align="middle"> → <img src="https://img.shields.io/badge/team--verify-fff3b0" alt="team-verify" align="middle"></td>
+<td>19</td>
+<td>0</td>
+<td>40</td>
+</tr>
+<tr>
+<td><a href="https://github.com/EveryInc/compound-engineering-plugin">Compound Engineering</a></td>
+<td>22k</td>
+<td><img src="https://img.shields.io/badge/%2Fce--strategy-ddf4ff" alt="/ce-strategy" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--ideate-ddf4ff" alt="/ce-ideate" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--brainstorm-ddf4ff" alt="/ce-brainstorm" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--plan-ddf4ff" alt="/ce-plan" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--work-ddf4ff" alt="/ce-work" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--worktree-fff3b0" alt="/ce-worktree" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--code--review-ddf4ff" alt="/ce-code-review" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--resolve--pr--feedback-fff3b0" alt="/ce-resolve-pr-feedback" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--polish-fff3b0" alt="/ce-polish" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--compound-ddf4ff" alt="/ce-compound" align="middle"> → <img src="https://img.shields.io/badge/%2Fce--promote-ddf4ff" alt="/ce-promote" align="middle"></td>
+<td>43</td>
+<td>1</td>
+<td>39</td>
+</tr>
+<tr>
+<td><a href="https://github.com/humanlayer/humanlayer">HumanLayer</a></td>
+<td>11k</td>
+<td><img src="https://img.shields.io/badge/%2Fresearch__codebase-ddf4ff" alt="/research_codebase" align="middle"> → <img src="https://img.shields.io/badge/%2Fcreate__plan-ddf4ff" alt="/create_plan" align="middle"> → <img src="https://img.shields.io/badge/%2Fvalidate__plan-fff3b0" alt="/validate_plan" align="middle"> → <img src="https://img.shields.io/badge/%2Fiterate__plan-fff3b0" alt="/iterate_plan" align="middle"> → <img src="https://img.shields.io/badge/%2Fimplement__plan-ddf4ff" alt="/implement_plan" align="middle"> → <img src="https://img.shields.io/badge/%2Flocal__review-ddf4ff" alt="/local_review" align="middle"> → <img src="https://img.shields.io/badge/%2Fcreate__handoff-ddf4ff" alt="/create_handoff" align="middle"> → <img src="https://img.shields.io/badge/%2Fresume__handoff-ddf4ff" alt="/resume_handoff" align="middle"> → <img src="https://img.shields.io/badge/%2Fcommit-ddf4ff" alt="/commit" align="middle"> → <img src="https://img.shields.io/badge/%2Fdescribe__pr-ddf4ff" alt="/describe_pr" align="middle"></td>
+<td>6</td>
+<td>27</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Note: yellow tags are sub-loops — steps that repeat inside a parent step (e.g. per task, per story, or until a verify condition passes).</em></p>
+</blockquote>
+<h3 id="others">Others</h3>
+<ul>
+<li><a href="development-workflows/rpi/rpi-workflow.html">RPI</a> <a href="development-workflows/rpi/rpi-workflow.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></li>
+<li><a href="https://www.youtube.com/watch?v=eAtvoGlpeRU">Ralph Wiggum Loop</a> <a href="https://github.com/shanraisshan/ralph-wiggum-self-evolving-loop"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a></li>
+<li><a href="https://x.com/karpathy/status/2015883857489522876">Andrej Karpathy (Founding Member, OpenAI) Workflow</a></li>
+<li><a href="https://youtu.be/8lF7HmQ_RgY?t=2582">Peter Steinberger (Creator of OpenClaw) Workflow</a></li>
+<li>Boris Cherny (Creator of Claude Code) Workflow — <a href="tips/claude-boris-13-tips-03-jan-26.html">13 Tips</a> · <a href="tips/claude-boris-10-tips-01-feb-26.html">10 Tips</a> · <a href="tips/claude-boris-12-tips-12-feb-26.html">12 Tips</a> · <a href="tips/claude-boris-2-tips-25-mar-26.html">2 Tips</a> · <a href="tips/claude-boris-15-tips-30-mar-26.html">15 Tips</a> · <a href="tips/claude-boris-6-tips-16-apr-26.html">6 Tips</a> <a href="https://x.com/bcherny"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></li>
+<li>Thariq (Anthropic) Workflow — <a href="tips/claude-thariq-tips-17-mar-26.html">Skills</a> · <a href="tips/claude-thariq-tips-16-apr-26.html">Session Management</a> <a href="https://x.com/trq212"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></li>
+</ul>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-cross-model-workflows">🔀 CROSS-MODEL WORKFLOWS</h2>
+<p>Use Claude Code together with other models — Codex, Gemini, GPT, Kimi, DeepSeek, local — via three mechanisms:</p>
+<ul>
+<li><strong>Plugin</strong> — another model's CLI runs inside Claude Code (slash commands like <code>/codex:review</code>)</li>
+<li><strong>MCP</strong> — Claude Code calls another model as a tool through Model Context Protocol</li>
+<li><strong>Router</strong> — Claude Code's API endpoint is swapped to a different provider</li>
+</ul>
+<p>Methodology: <a href="development-workflows/cross-model-workflow/cross-model-workflow.html">Cross-Model (Claude Code + Codex) Workflow</a> <a href="development-workflows/cross-model-workflow/cross-model-workflow.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\implemented.svg" alt="Implemented"></a> — manual two-terminal flow with Plan in Claude, QA-Review in Codex.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>★</th>
+<th>Type</th>
+<th>Bridges to</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/musistudio/claude-code-router">musistudio/claude-code-router</a></td>
+<td>34k</td>
+<td>Router</td>
+<td>OpenRouter, DeepSeek, Ollama, Gemini, Kimi, Qwen, Groq, +more</td>
+<td>Routes Claude Code's API to any compatible provider, with per-task model selection</td>
+</tr>
+<tr>
+<td><a href="https://github.com/router-for-me/CLIProxyAPI">router-for-me/CLIProxyAPI</a></td>
+<td>32k</td>
+<td>Router</td>
+<td>Gemini CLI, Codex, Claude Code, Antigravity</td>
+<td>Wraps each CLI as an OpenAI/Gemini/Claude/Codex-compatible API service</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openai/codex-plugin-cc">openai/codex-plugin-cc</a></td>
+<td>18k</td>
+<td>Plugin</td>
+<td>Codex / GPT-5</td>
+<td>Official OpenAI plugin: <code>/codex:review</code>, <code>/codex:adversarial-review</code>, <code>/codex:rescue</code> inside Claude Code</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BeehiveInnovations/pal-mcp-server">BeehiveInnovations/pal-mcp-server</a></td>
+<td>12k</td>
+<td>MCP</td>
+<td>Gemini, OpenAI, Azure, Grok, Ollama, OpenRouter (50+ models)</td>
+<td>Multi-model MCP server (formerly <code>zen-mcp-server</code>) — call other models as Claude tools</td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-skill-collections">🧰 SKILL COLLECTIONS</h2>
+<p>Repos primarily known as curated libraries of <code>SKILL.md</code> files (distinct from full workflow methodologies above). Sorted by stars descending.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>★</th>
+<th><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\s.svg" height="14"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/anthropics/skills">anthropics/skills</a></td>
+<td>153k</td>
+<td>17</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></td>
+<td>136k</td>
+<td>30</td>
+</tr>
+<tr>
+<td><a href="https://github.com/wshobson/agents">wshobson/agents</a></td>
+<td>37k</td>
+<td>156</td>
+</tr>
+<tr>
+<td><a href="https://github.com/K-Dense-AI/scientific-agent-skills">scientific-agent-skills</a></td>
+<td>29k</td>
+<td>147</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pbakaus/impeccable">impeccable</a></td>
+<td>27k</td>
+<td>1 (with 7 design domain references)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/addyosmani/agent-skills">agent-skills</a></td>
+<td>27k</td>
+<td>21</td>
+</tr>
+<tr>
+<td><a href="https://github.com/VoltAgent/awesome-agent-skills">awesome-agent-skills</a></td>
+<td>26k</td>
+<td>1,424+ (curated list)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/alirezarezvani/claude-skills">claude-skills</a></td>
+<td>15k</td>
+<td>246 (across 9 domains)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/shanraisshan/draw-json-architecture-skill">shanraisshan/draw-json-architecture-skill</a></td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-agent-collections">🤖 AGENT COLLECTIONS</h2>
+<p>Repos primarily known as curated libraries of subagent definitions (<code>.claude/agents/*.md</code>). Sorted by stars descending.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>★</th>
+<th><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\a.svg" height="14"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/msitarzewski/agency-agents">msitarzewski/agency-agents</a></td>
+<td>114k</td>
+<td>271</td>
+</tr>
+<tr>
+<td><a href="https://github.com/VoltAgent/awesome-claude-code-subagents">VoltAgent/awesome-claude-code-subagents</a></td>
+<td>22k</td>
+<td>156</td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-tips-and-tricks-83">💡 TIPS AND TRICKS (83)</h2>
+<p>🚫👶 = do not babysit</p>
+<p><a href="#tips-prompting">Prompting</a> · <a href="#tips-planning">Planning</a> · <a href="#tips-context">Context</a> · <a href="#tips-session">Session</a> · <a href="#tips-claudemd">CLAUDE.md + .claude/rules</a> · <a href="#tips-agents">Agents</a> · <a href="#tips-commands">Commands</a> · <a href="#tips-skills">Skills</a> · <a href="#tips-hooks">Hooks</a> · <a href="#tips-workflows">Workflows</a> · <a href="#tips-workflows-advanced">Advanced</a> · <a href="#tips-git-pr">Git / PR</a> · <a href="#tips-debugging">Debugging</a> · <a href="#tips-utilities">Utilities</a> · <a href="#tips-daily">Daily</a></p>
+<p><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community.svg" alt="Community"></p>
+<p><a id="tips-prompting"></a>■ <strong>Prompting (3)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>challenge Claude — &quot;grill me on these changes and don't make a PR until I pass your test.&quot; or &quot;prove to me this works&quot; and have Claude diff between main and your branch 🚫👶</td>
+<td><a href="https://x.com/bcherny/status/2017742752566632544"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>after a mediocre fix — &quot;knowing everything you know now, scrap this and implement the elegant solution&quot; 🚫👶</td>
+<td><a href="https://x.com/bcherny/status/2017742752566632544"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>Claude fixes most bugs by itself — paste the bug, say &quot;fix&quot;, don't micromanage how 🚫👶</td>
+<td><a href="https://x.com/bcherny/status/2017742750473720121"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-planning"></a>■ <strong>Planning/Specs (7)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>always start with <a href="https://code.claude.com/docs/en/common-workflows">plan mode</a></td>
+<td><a href="https://x.com/bcherny/status/2007179845336527000"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>start with a minimal spec or prompt and ask Claude to interview you using <a href="https://code.claude.com/docs/en/cli-reference">AskUserQuestion</a> tool, then make a new session to execute the spec</td>
+<td><a href="https://x.com/trq212/status/2005315275026260309"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>always make a phase-wise gated plan, with each phase having multiple tests (unit, automation, integration)</td>
+<td><a href="videos/claude-dex-mlops-community-24-mar-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-dex.svg" alt="Dex"></a> <a href="https://youtu.be/YwZR6tc7qYg?t=1032"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+<tr>
+<td>break PRDs into vertical slices (tracer bullets) that cross all layers (DB + service + UI) — AI defaults to horizontal phasing (DB phase, then API phase, then frontend phase) which delays end-to-end feedback until the last phase. From the Pragmatic Programmer 🚫👶</td>
+<td><a href="videos/claude-matt-pocock-24-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-matt.svg" alt="Matt"></a> <a href="https://youtu.be/-QFHIoCo-Ko"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+<tr>
+<td>spin up a second Claude to review your plan as a staff engineer, or use <a href="development-workflows/cross-model-workflow/cross-model-workflow.html">cross-model</a> for review</td>
+<td><a href="https://x.com/bcherny/status/2017742745365057733"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>write detailed specs and reduce ambiguity before handing work off — the more specific you are, the better the output</td>
+<td><a href="https://x.com/bcherny/status/2017742752566632544"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>prototype &gt; PRD — build 20-30 versions instead of writing specs, the cost of building is low so take many shots</td>
+<td><a href="https://youtu.be/julbw1JuAz0?t=3630"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="https://youtu.be/julbw1JuAz0?t=3630"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-context"></a>■ <strong>Context (5)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context rot kicks in around ~300-400k tokens on the 1M context model — don't let sessions drift past that for intelligence-sensitive work</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>dumb zone kicks in around ~40% context — &quot;you hit this point where you have degrading results&quot;. Newcomers: &quot;shoot to keep it under 40%, and if you get up to 60%, think about wrapping it up&quot;. Experienced: &quot;aggressively keep it below 30%&quot; — push to 60% only on simple tasks. Manual <a href="https://code.claude.com/docs/en/interactive-mode">/compact</a> or <a href="https://code.claude.com/docs/en/cli-reference">/clear</a> to reset when switching tasks</td>
+<td><a href="videos/claude-dex-mlops-community-24-mar-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-dex.svg" alt="Dex"></a> <a href="https://youtu.be/YwZR6tc7qYg?t=1541"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+<tr>
+<td>rewind &gt; correct — double-Esc or <a href="https://code.claude.com/docs/en/checkpointing">/rewind</a> back to before the failed attempt and re-prompt with what you learned, instead of leaving failed attempts + corrections polluting context 🚫👶</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/interactive-mode">/compact</a> with a hint (/compact focus on the auth refactor, drop the test debugging) beats letting autocompact fire — the model is at its least intelligent point when auto-compacting due to context rot</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>use subagents for context management — ask yourself &quot;will I need this tool output again, or just the conclusion?&quot; — 20 file reads + 12 greps + 3 dead ends stay in the child's context, only the final report returns 🚫👶</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-session"></a>■ <strong>Session Management (6)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>every turn is a branching point — after Claude ends a turn, pick between Continue, /rewind, /clear, /compact, or Subagent based on how much existing context you need to carry forward</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>new task = new session — related tasks (e.g. writing docs for what you just built) can reuse context for efficiency, but genuinely new tasks deserve a fresh session</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>use &quot;summarize from here&quot; before rewinding to have Claude write a handoff message — like a note to the previous iteration of Claude from its future self</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>/compact vs /clear — compact is lossy but momentum-friendly (mid-task, fuzzy details ok); /clear + brief is more work but you control exactly what carries forward (high-stakes next step)</td>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>use recaps for long-running sessions — short summaries of what Claude did and what's next, useful when returning after minutes or hours. Disable with recaps in /config</td>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/cli-reference">/rename</a> important sessions (e.g. [TODO - refactor task]) and <a href="https://code.claude.com/docs/en/cli-reference">/resume</a> them later — label each instance when running multiple Claudes simultaneously</td>
+<td><a href="https://every.to/podcast/how-to-use-claude-code-like-the-people-who-built-it"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\cat-wu.svg" alt="Cat"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-claudemd"></a>■ <strong><a href="http://CLAUDE.html">CLAUDE.md</a> + .claude/rules (8)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://code.claude.com/docs/en/memory">CLAUDE.md</a> should target under <a href="https://code.claude.com/docs/en/memory#write-effective-instructions">200 lines</a> per file. <a href="https://www.humanlayer.dev/blog/writing-a-good-claude-md">60 lines in humanlayer</a> (<a href="https://www.reddit.com/r/ClaudeCode/comments/1qn9pb9/claudemd_says_must_use_agent_claude_ignores_it_80/">still not 100% guaranteed</a>)</td>
+<td><a href="https://x.com/bcherny/status/2007179840848597422"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="https://www.humanlayer.dev/blog/writing-a-good-claude-md"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-dex.svg" alt="Dex"></a></td>
+</tr>
+<tr>
+<td>.claude/rules/*.md auto-load into every session like <a href="http://CLAUDE.html">CLAUDE.md</a> — add paths: YAML frontmatter to lazy-load them only when Claude touches files matching the glob</td>
+<td><a href="https://code.claude.com/docs/en/memory#organize-rules-with-clauderules"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Claude"></a></td>
+</tr>
+<tr>
+<td>wrap domain-specific <a href="http://CLAUDE.html">CLAUDE.md</a> rules in <a href="https://www.hlyr.dev/blog/stop-claude-from-ignoring-your-claude-md">&lt;important if=&quot;...&quot;&gt; tags</a> to stop Claude from ignoring them as files grow longer</td>
+<td><a href="https://www.hlyr.dev/blog/stop-claude-from-ignoring-your-claude-md"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-dex.svg" alt="Dex"></a></td>
+</tr>
+<tr>
+<td>use <a href="best-practice/claude-memory.html">multiple CLAUDE.md</a> for monorepos — ancestor + descendant loading</td>
+<td><a href="https://x.com/bcherny/status/2016339448863355206"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/memory#organize-rules-with-clauderules">.claude/rules/</a> to split large instructions</td>
+<td><a href="https://code.claude.com/docs/en/memory#organize-rules-with-clauderules"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Claude"></a></td>
+</tr>
+<tr>
+<td>any developer should be able to launch Claude, say &quot;run the tests&quot; and it works on the first try — if it doesn't, your <a href="http://CLAUDE.html">CLAUDE.md</a> is missing essential setup/build/test commands</td>
+<td><a href="https://x.com/dexhorthy/status/2034713765401551053"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-dex.svg" alt="Dex"></a></td>
+</tr>
+<tr>
+<td>keep codebases clean and finish migrations — partially migrated frameworks confuse models that might pick the wrong pattern</td>
+<td><a href="https://youtu.be/julbw1JuAz0?t=1112"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="https://youtu.be/julbw1JuAz0?t=1112"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+<tr>
+<td>use <a href="best-practice/claude-settings.html">settings.json</a> for harness-enforced behavior (attribution, permissions, model) — don't put &quot;NEVER add Co-Authored-By&quot; in <a href="http://CLAUDE.html">CLAUDE.md</a> when attribution.commit: &quot;&quot; is deterministic</td>
+<td><a href="https://x.com/dani_avila7/status/2036182734310195550"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-davila7.svg" alt="davila7"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-agents"></a><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\a.svg" height="14"> <strong>Agents (4)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>have feature specific <a href="https://code.claude.com/docs/en/sub-agents">sub-agents</a> (extra context) with <a href="https://code.claude.com/docs/en/skills">skills</a> (progressive disclosure) instead of general qa, backend engineer</td>
+<td><a href="https://x.com/bcherny/status/2007179850139000872"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>say &quot;use subagents&quot; to throw more compute at a problem — offload tasks to keep your main context clean and focused 🚫👶</td>
+<td><a href="https://x.com/bcherny/status/2017742755737555434"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/agent-teams">agent teams with tmux</a> and <a href="https://x.com/bcherny/status/2025007393290272904">git worktrees</a> for parallel development</td>
+<td><a href="https://x.com/bcherny/status/2025007393290272904"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/sub-agents">test time compute</a> — separate context windows make results better; one agent can cause bugs and another (same model) can find them</td>
+<td><a href="https://x.com/bcherny/status/2031151689219321886"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-commands"></a><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\c.svg" height="14"> <strong>Commands (3)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/slash-commands">commands</a> for your workflows instead of <a href="https://code.claude.com/docs/en/sub-agents">sub-agents</a></td>
+<td><a href="https://x.com/bcherny/status/2007179847949500714"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/slash-commands">slash commands</a> for every &quot;inner loop&quot; workflow you do many times a day — saves repeated prompting, commands live in .claude/commands/ and are checked into git</td>
+<td><a href="https://x.com/bcherny/status/2007179847949500714"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>if you do something more than once a day, turn it into a <a href="https://code.claude.com/docs/en/skills">skill</a> or <a href="https://code.claude.com/docs/en/slash-commands">command</a> — build /techdebt, context-dump, or analytics commands</td>
+<td><a href="https://x.com/bcherny/status/2017742748984742078"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-skills"></a><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\s.svg" height="14"> <strong>Skills (9)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/skills">context: fork</a> to run a skill in an isolated subagent — main context only sees the final result, not intermediate tool calls. The agent field lets you set the subagent type</td>
+<td><a href="https://x.com/lydiahallie/status/2033603164398883042"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\lydia.svg" alt="Lydia"></a></td>
+</tr>
+<tr>
+<td>use <a href="reports/claude-skills-for-larger-mono-repos.html">skills in subfolders</a> for monorepos</td>
+<td><a href="https://code.claude.com/docs/en/skills"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Claude"></a></td>
+</tr>
+<tr>
+<td>skills are folders, not files — use references/, scripts/, examples/ subdirectories for <a href="https://code.claude.com/docs/en/skills">progressive disclosure</a></td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>build a Gotchas section in every skill — highest-signal content, add Claude's failure points over time</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>skill description field is a trigger, not a summary — write it for the model (&quot;when should I fire?&quot;)</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>don't state the obvious in skills — focus on what pushes Claude out of its default behavior 🚫👶</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>don't railroad Claude in skills — give goals and constraints, not prescriptive step-by-step instructions 🚫👶</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>include scripts and libraries in skills so Claude composes rather than reconstructs boilerplate</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>embed !command in <a href="http://SKILL.html">SKILL.md</a> to inject dynamic shell output into the prompt — Claude runs it on invocation and the model only sees the result</td>
+<td><a href="https://x.com/lydiahallie/status/2034337963820327017"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\lydia.svg" alt="Lydia"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-hooks"></a>■ <strong>Hooks (5)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/skills">on-demand hooks</a> in skills — /careful blocks destructive commands, /freeze blocks edits outside a directory</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/skills">measure skill usage</a> with a PreToolUse hook to find popular or undertriggering skills</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>use a <a href="https://code.claude.com/docs/en/hooks">PostToolUse hook</a> to auto-format code — Claude generates well-formatted code, the hook handles the last 10% to avoid CI failures</td>
+<td><a href="https://x.com/bcherny/status/2007179852047335529"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>route <a href="https://code.claude.com/docs/en/hooks">permission requests</a> to Opus via a hook — let it scan for attacks and auto-approve safe ones 🚫👶</td>
+<td><a href="https://x.com/bcherny/status/2017742755737555434"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use a <a href="https://code.claude.com/docs/en/hooks">Stop hook</a> to nudge Claude to keep going or verify its work at the end of a turn</td>
+<td><a href="https://x.com/bcherny/status/2021701059253874861"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-workflows"></a>■ <strong>Workflows (5)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/model-config">/model</a> to select model and reasoning, <a href="https://code.claude.com/docs/en/interactive-mode">/context</a> to see context usage, <a href="https://code.claude.com/docs/en/costs">/usage</a> to check plan limits, <a href="https://code.claude.com/docs/en/interactive-mode">/extra-usage</a> to configure overflow billing, <a href="https://code.claude.com/docs/en/settings">/config</a> to configure settings — use Opus for plan mode and Sonnet for code to get the best of both</td>
+<td><a href="https://x.com/_catwu/status/1955694117264261609"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\cat-wu.svg" alt="Cat"></a></td>
+</tr>
+<tr>
+<td>always use <a href="https://code.claude.com/docs/en/model-config">thinking mode</a> true (to see reasoning) and <a href="https://code.claude.com/docs/en/output-styles">Output Style</a> Explanatory (to see detailed output with ★ Insight boxes) in <a href="https://code.claude.com/docs/en/settings">/config</a> for better understanding of Claude's decisions</td>
+<td><a href="https://x.com/bcherny/status/2007179838864666847"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use ultrathink keyword in prompts for <a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking#tips-and-best-practices">high effort reasoning</a></td>
+<td><a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking#tips-and-best-practices"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Claude"></a></td>
+</tr>
+<tr>
+<td>/focus mode hides all intermediate work and shows only the final result — trust the model to run the right commands and just look at the outcome (toggle with /focus)</td>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>tune effort level with Opus 4.7's adaptive thinking — low for speed and fewer tokens, max for most intelligence (slider: low · medium · high · xhigh · max)</td>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-workflows-advanced"></a>■ <strong>Workflows Advanced (9)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use ASCII diagrams a lot to understand your architecture</td>
+<td><a href="https://x.com/bcherny/status/2017742759218794768"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/scheduled-tasks">/loop</a> for local recurring monitoring (up to 7 days) · use <a href="https://code.claude.com/docs/en/routines">/schedule</a> for cloud-based recurring tasks that run even when your machine is off</td>
+<td><a href="https://x.com/bcherny/status/2038454341884154269"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://github.com/shanraisshan/ralph-wiggum-self-evolving-loop">Ralph Wiggum plugin</a> for long-running autonomous tasks</td>
+<td><a href="https://x.com/bcherny/status/2007179858435281082"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/permissions">/permissions</a> with wildcard syntax (Bash(npm run *), Edit(/docs/**)) instead of dangerously-skip-permissions</td>
+<td><a href="https://x.com/bcherny/status/2007179854077407667"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/sandboxing">/sandbox</a> to reduce permission prompts with file and network isolation — 84% reduction internally</td>
+<td><a href="https://x.com/bcherny/status/2021700506465579443"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\cat-wu.svg" alt="Cat"></a></td>
+</tr>
+<tr>
+<td>invest in <a href="https://code.claude.com/docs/en/skills">product verification</a> skills (signup-flow-driver, checkout-verifier) — worth spending a week to perfect</td>
+<td><a href="https://x.com/trq212/status/2033949937936085378"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\thariq.svg" alt="Thariq"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode">auto mode</a> instead of dangerously-skip-permissions — a model-based classifier decides if each command is safe and auto-approves, pauses and asks if risky. Shift+Tab to cycle Ask → Plan → Auto modes 🚫👶</td>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>use /less-permission-prompts skill to scan session history for safe bash/MCP commands that repeatedly prompt, then get a recommended allowlist to paste into <a href="best-practice/claude-settings.html">settings</a></td>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>build a /go skill that (1) tests end-to-end via bash/browser/computer use (2) runs /simplify (3) puts up a PR — so when you come back, you know the code works 🚫👶</td>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-git-pr"></a>■ <strong>Git / PR (5)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keep PRs small and focused — <a href="tips/claude-boris-2-tips-25-mar-26.html">p50 of 118 lines</a> (141 PRs, 45K lines changed in a day), one feature per PR, easier to review and revert</td>
+<td><a href="https://x.com/bcherny/status/2038552880018538749"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>always <a href="tips/claude-boris-2-tips-25-mar-26.html">squash merge</a> PRs — clean linear history, one commit per feature, easy git revert and git bisect</td>
+<td><a href="https://x.com/bcherny/status/2038552880018538749"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td>commit often — try to commit at least once per hour, as soon as task is completed, commit</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td>tag <a href="https://github.com/apps/claude">@claude</a> on a coworker's PR to auto-generate lint rules for recurring review feedback — automate yourself out of code review 🚫👶</td>
+<td><a href="https://youtu.be/julbw1JuAz0?t=2715"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="https://youtu.be/julbw1JuAz0?t=2715"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+<tr>
+<td>use <a href="https://code.claude.com/docs/en/code-review">/code-review</a> for multi-agent PR analysis — catches bugs, security vulnerabilities, and regressions before merge</td>
+<td><a href="https://x.com/bcherny/status/2031089411820228645"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-debugging"></a>■ <strong>Debugging (6)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>make it a habit to take screenshots and share with Claude whenever you are stuck with any issue</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td>use mcp (<a href="https://code.claude.com/docs/en/chrome">Claude in Chrome</a>, <a href="https://github.com/microsoft/playwright-mcp">Playwright</a>, <a href="https://developer.chrome.com/blog/chrome-devtools-mcp">Chrome DevTools</a>) to let claude see chrome console logs on its own</td>
+<td><a href="https://code.claude.com/docs/en/chrome"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Claude"></a></td>
+</tr>
+<tr>
+<td>always ask claude to run the terminal (you want to see logs of) as a background task for better debugging</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/cli-reference">/doctor</a> to diagnose installation, authentication, and configuration issues</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td>use a <a href="development-workflows/cross-model-workflow/cross-model-workflow.html">cross-model</a> for QA — e.g. <a href="https://github.com/shanraisshan/codex-cli-best-practice">Codex</a> for plan and implementation review</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td>agentic search (glob + grep) beats RAG — Claude Code tried and discarded vector databases because code drifts out of sync and permissions are complex</td>
+<td><a href="https://youtu.be/julbw1JuAz0?t=3095"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <a href="https://youtu.be/julbw1JuAz0?t=3095"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\video.svg" alt="Video"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-utilities"></a>■ <strong>Utilities (5)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://iterm2.com/">iTerm</a>/<a href="https://ghostty.org/">Ghostty</a>/<a href="https://github.com/tmux/tmux">tmux</a> terminals instead of IDE (<a href="https://code.visualstudio.com/">VS Code</a>/<a href="https://www.cursor.com/">Cursor</a>)</td>
+<td><a href="https://x.com/bcherny/status/2017742753971769626"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/voice-dictation">/voice</a> or <a href="https://wisprflow.ai">Wispr Flow</a> for voice prompting (10x productivity)</td>
+<td><a href="https://x.com/bcherny/status/2038454362226467112"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/shanraisshan/claude-code-hooks">claude-code-hooks</a> for claude feedback</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td><a href="https://github.com/shanraisshan/claude-code-status-line">status line</a> for context awareness and fast compacting</td>
+<td><a href="https://x.com/bcherny/status/2021700784019452195"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a> <img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td>explore <a href="best-practice/claude-settings.html">settings.json</a> features like <a href="best-practice/claude-settings.html#plans-directory">Plans Directory</a>, <a href="best-practice/claude-settings.html#display--ux">Spinner Verbs</a> for a personalized experience</td>
+<td><a href="https://x.com/bcherny/status/2021701145023197516"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a id="tips-daily"></a>■ <strong>Daily (2)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://code.claude.com/docs/en/setup">update</a> Claude Code daily</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+<tr>
+<td>start your day by reading the <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">changelog</a></td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-shayan.svg" alt="Shayan"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Boris Cherny + Team"></p>
+<table>
+<thead>
+<tr>
+<th>Article / Tweet</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="tips/claude-boris-6-tips-16-apr-26.html">6 Tips for Getting More Out of Opus 4.7 (Boris) | 16/Apr/26</a></td>
+<td><a href="https://x.com/bcherny">Tweet</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-thariq-tips-16-apr-26.html">Session Management &amp; 1M Context (Thariq) | 16/Apr/26</a></td>
+<td><a href="https://x.com/trq212">Tweet</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-boris-15-tips-30-mar-26.html">15 Hidden &amp; Under-Utilized Features in Claude Code (Boris) | 30/Mar/26</a></td>
+<td><a href="https://x.com/bcherny/status/2038454336355999749">Tweet</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-boris-2-tips-25-mar-26.html">Squash Merging &amp; PR Size Distribution (Boris) | 25/Mar/26</a></td>
+<td><a href="https://x.com/bcherny/status/2038552880018538749">Tweet</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-thariq-tips-17-mar-26.html">Lessons from Building Claude Code: How We Use Skills (Thariq) | 17/Mar/26</a></td>
+<td><a href="https://x.com/trq212/status/2033949937936085378">Article</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-boris-2-tips-10-mar-26.html">Code Review &amp; Test Time Compute (Boris) | 10/Mar/26</a></td>
+<td><a href="https://x.com/bcherny/status/2031089411820228645">Tweet</a></td>
+</tr>
+<tr>
+<td>/loop — schedule recurring tasks for up to 3 days (Boris) | 07 Mar 2026</td>
+<td><a href="https://x.com/bcherny/status/2030193932404150413">Tweet</a></td>
+</tr>
+<tr>
+<td>AskUserQuestion + ASCII Markdowns (Thariq) | 28 Feb 2026</td>
+<td><a href="https://x.com/trq212/status/2027543858289250472">Tweet</a></td>
+</tr>
+<tr>
+<td>Seeing like an Agent - lessons from building Claude Code (Thariq) | 28 Feb 2026</td>
+<td><a href="https://x.com/trq212/status/2027463795355095314">Article</a></td>
+</tr>
+<tr>
+<td>Git Worktrees - 5 ways how boris is using | 21 Feb 2026</td>
+<td><a href="https://x.com/bcherny/status/2025007393290272904">Tweet</a></td>
+</tr>
+<tr>
+<td>Lessons from Building Claude Code: Prompt Caching Is Everything (Thariq) | 20 Feb 2026</td>
+<td><a href="https://x.com/trq212/status/2024574133011673516">Article</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-boris-12-tips-12-feb-26.html">12 ways how people are customizing their claudes (Boris) | 12/Feb/26</a></td>
+<td><a href="https://x.com/bcherny/status/2021699851499798911">Tweet</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-boris-10-tips-01-feb-26.html">10 tips for using Claude Code from the team (Boris) | 01/Feb/26</a></td>
+<td><a href="https://x.com/bcherny/status/2017742741636321619">Tweet</a></td>
+</tr>
+<tr>
+<td><a href="tips/claude-boris-13-tips-03-jan-26.html">How I use Claude Code — 13 tips from my surprisingly vanilla setup (Boris) | 03/Jan/26</a></td>
+<td><a href="https://x.com/bcherny/status/2007179832300581177">Tweet</a></td>
+</tr>
+<tr>
+<td>Ask Claude to interview you using AskUserQuestion tool (Thariq) | 28/Dec/25</td>
+<td><a href="https://x.com/trq212/status/2005315275026260309">Tweet</a></td>
+</tr>
+<tr>
+<td>Always use plan mode, give Claude a way to verify, use /code-review (Boris) | 27/Dec/25</td>
+<td><a href="https://x.com/bcherny/status/2004711722926616680">Tweet</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="tips-from-claude-code-cli-binary">Tips from Claude code CLI binary</h4>
+<p><a href="reports/claude-spinner-verbs-and-tips.html">Spinner Verbs &amp; Tips (extracted from CLI binary v2.1.121)</a></p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-videos--podcasts">🎬 VIDEOS / PODCASTS</h2>
+<table>
+<thead>
+<tr>
+<th>Video / Podcast</th>
+<th>Source</th>
+<th>YouTube</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From Vibe Coding to Agentic Engineering (Andrej) | 02 May 2026 | AI Engineer</td>
+<td><a href="https://x.com/karpathy"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-karpathy.svg" alt="Karpathy"></a></td>
+<td><a href="https://www.youtube.com/watch?v=96jN2OCOfLs">YouTube</a></td>
+</tr>
+<tr>
+<td>Full Walkthrough: Workflow for AI Coding (Matt) | 24 Apr 2026 | Matt Pocock</td>
+<td><a href="https://x.com/mattpocockuk"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-matt.svg" alt="Matt"></a></td>
+<td><a href="https://youtu.be/-QFHIoCo-Ko">YouTube</a></td>
+</tr>
+<tr>
+<td>Everything We Got Wrong About Research-Plan-Implement (Dex) | 24 Mar 2026 | MLOps Community</td>
+<td><a href="https://x.com/daborhyde"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community-dex.svg" alt="Dex"></a></td>
+<td><a href="https://youtu.be/YwZR6tc7qYg">YouTube</a></td>
+</tr>
+<tr>
+<td>Building Claude Code with Boris Cherny (Boris) | 04 Mar 2026 | The Pragmatic Engineer</td>
+<td><a href="https://x.com/bcherny"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+<td><a href="https://youtu.be/julbw1JuAz0">YouTube</a></td>
+</tr>
+<tr>
+<td>Head of Claude Code: What happens after coding is solved (Boris) | 19 Feb 2026 | Lenny's Podcast</td>
+<td><a href="https://x.com/bcherny"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+<td><a href="https://youtu.be/We7BZVKbCVw">YouTube</a></td>
+</tr>
+<tr>
+<td>Inside Claude Code With Its Creator Boris Cherny (Boris) | 17 Feb 2026 | Y Combinator</td>
+<td><a href="https://x.com/bcherny"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+<td><a href="https://youtu.be/PQU9o_5rHC4">YouTube</a></td>
+</tr>
+<tr>
+<td>Boris Cherny (Creator of Claude Code) On What Grew His Career (Boris) | 15 Dec 2025 | Ryan Peterman</td>
+<td><a href="https://x.com/bcherny"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+<td><a href="https://youtu.be/AmdLVWMdjOk">YouTube</a></td>
+</tr>
+<tr>
+<td>The Secrets of Claude Code From the Engineers Who Built It (Cat) | 29 Oct 2025 | Every</td>
+<td><a href="https://x.com/bcherny"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\boris-cherny.svg" alt="Boris"></a></td>
+<td><a href="https://youtu.be/IDSAMqip6ms">YouTube</a></td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-subscribe">🔔 SUBSCRIBE</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Name</th>
+<th>Badge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://img.shields.io/badge/-FF4500?style=flat&amp;logo=reddit&amp;logoColor=white" alt="Reddit"></td>
+<td><a href="https://www.reddit.com/r/ClaudeAI/">r/ClaudeAI</a>, <a href="https://www.reddit.com/r/ClaudeCode/">r/ClaudeCode</a>, <a href="https://www.reddit.com/r/Anthropic/">r/Anthropic</a></td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Boris + Team"></td>
+</tr>
+<tr>
+<td><img src="https://img.shields.io/badge/-000?style=flat&amp;logo=x&amp;logoColor=white" alt="X"></td>
+<td><a href="https://x.com/claudeai">Claude</a>, <a href="https://x.com/ClaudeDevs">Claude Devs</a>, <a href="https://x.com/AnthropicAI">Anthropic</a>, <a href="https://x.com/bcherny">Boris</a>, <a href="https://x.com/trq212">Thariq</a>, <a href="https://x.com/_catwu">Cat</a>, <a href="https://x.com/lydiahallie">Lydia</a>, <a href="https://x.com/noahzweben">Noah</a>, <a href="https://x.com/amorriscode">Anthony</a>, <a href="https://x.com/alexalbert__">Alex</a>, <a href="https://x.com/neilhtennek">Kenneth</a></td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Boris + Team"></td>
+</tr>
+<tr>
+<td><img src="https://img.shields.io/badge/-000?style=flat&amp;logo=x&amp;logoColor=white" alt="X"></td>
+<td><a href="https://x.com/obra">Jesse Kriss</a> (<a href="https://github.com/obra/superpowers">Superpowers</a>), <a href="https://x.com/affaanmustafa">Affaan Mustafa</a> (<a href="https://github.com/affaan-m/everything-claude-code">ECC</a>), <a href="https://x.com/garrytan">Garry Tan</a> (<a href="https://github.com/garrytan/gstack">gstack</a>), <a href="https://x.com/dexhorthy">Dex Horthy</a> (<a href="https://github.com/humanlayer/humanlayer">HumanLayer</a>), <a href="https://x.com/kieranklaassen">Kieran Klaassen</a> (<a href="https://github.com/EveryInc/compound-engineering-plugin">Compound Eng</a>), <a href="https://x.com/0xTab">Tabish Gilani</a> (<a href="https://github.com/Fission-AI/OpenSpec">OpenSpec</a>), <a href="https://x.com/BMadCode">Brian McAdams</a> (<a href="https://github.com/bmad-code-org/BMAD-METHOD">BMAD</a>), <a href="https://x.com/official_taches">Lex Christopherson</a> (<a href="https://github.com/gsd-build/get-shit-done">GSD</a>), <a href="https://x.com/mattpocockuk">Matt Pocock</a> (<a href="https://github.com/mattpocock/skills">Skills</a>), <a href="https://x.com/dani_avila7">Dani Avila</a> (<a href="https://github.com/davila7/claude-code-templates">CC Templates</a>), <a href="https://x.com/danshipper">Dan Shipper</a> (<a href="https://every.to/">Every</a>), <a href="https://x.com/karpathy">Andrej Karpathy</a> (<a href="https://x.com/karpathy/status/2015883857489522876">AutoResearch</a>), <a href="https://x.com/steipete">Peter Steinberger</a> (<a href="https://x.com/openclaw">OpenClaw</a>), <a href="https://x.com/realsigridjin">Sigrid Jin</a> (<a href="https://github.com/ultraworkers/claw-code">claw-code</a>), <a href="https://x.com/bellman_ych">Yeachan Heo</a> (<a href="https://github.com/Yeachan-Heo/oh-my-claudecode">oh-my-claudecode</a>)</td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community.svg" alt="Community"></td>
+</tr>
+<tr>
+<td><img src="https://img.shields.io/badge/-F00?style=flat&amp;logo=youtube&amp;logoColor=white" alt="YouTube"></td>
+<td><a href="https://www.youtube.com/@anthropic-ai">Anthropic</a></td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude.svg" alt="Boris + Team"></td>
+</tr>
+<tr>
+<td><img src="https://img.shields.io/badge/-F00?style=flat&amp;logo=youtube&amp;logoColor=white" alt="YouTube"></td>
+<td><a href="https://www.youtube.com/@LennysPodcast">Lenny's Podcast</a>, <a href="https://www.youtube.com/@ycombinator">Y Combinator</a>, <a href="https://www.youtube.com/@pragmaticengineer">The Pragmatic Engineer</a>, <a href="https://www.youtube.com/@ryanlpeterman">Ryan Peterman</a>, <a href="https://www.youtube.com/@every_media">Every</a>, <a href="https://www.youtube.com/@MLOps">MLOps Community</a></td>
+<td><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\community.svg" alt="Community"></td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="️-startups--businesses">☠️ STARTUPS / BUSINESSES</h2>
+<table>
+<thead>
+<tr>
+<th>Claude</th>
+<th>Replaced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://code.claude.com/docs/en/code-review"><strong>Code Review</strong></a></td>
+<td><a href="https://greptile.com">Greptile</a>, <a href="https://coderabbit.ai">CodeRabbit</a>, <a href="https://devin.ai">Devin Review</a>, <a href="https://opendiff.com">OpenDiff</a>, <a href="https://bugbot.dev">Cursor BugBot</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/voice-dictation"><strong>Voice Dictation</strong></a></td>
+<td><a href="https://wisprflow.ai">Wispr Flow</a>, <a href="https://superwhisper.com/">SuperWhisper</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/remote-control"><strong>Remote Control</strong></a></td>
+<td><a href="https://openclaw.ai/">OpenClaw</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/chrome"><strong>Claude in Chrome</strong></a></td>
+<td><a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a>, <a href="https://developer.chrome.com/blog/chrome-devtools-mcp">Chrome DevTools MCP</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.anthropic.com/en/docs/agents-and-tools/computer-use"><strong>Computer Use</strong></a></td>
+<td><a href="https://openai.com/index/computer-using-agent/">OpenAI CUA</a></td>
+</tr>
+<tr>
+<td><a href="https://claude.com/blog/cowork-research-preview"><strong>Cowork</strong></a></td>
+<td><a href="https://openai.com/chatgpt/agent/">ChatGPT Agent</a>, <a href="https://www.perplexity.ai/computer/">Perplexity Computer</a>, <a href="https://manus.im">Manus</a></td>
+</tr>
+<tr>
+<td><a href="https://x.com/trq212/status/2014480496013803643"><strong>Tasks</strong></a></td>
+<td><a href="https://github.com/steveyegge/beads">Beads</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/common-workflows"><strong>Plan Mode</strong></a></td>
+<td><a href="https://github.com/buildermethods/agent-os">Agent OS</a></td>
+</tr>
+<tr>
+<td><a href="https://claude.com/design"><strong>Design</strong></a></td>
+<td><a href="https://figma.com">Figma</a>, <a href="https://framer.com">Framer</a>, <a href="https://sketch.com">Sketch</a>, <a href="https://v0.dev">v0</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/agent-sdk/overview"><strong>Agent SDK</strong></a></td>
+<td><a href="https://langchain.com">LangChain</a>, <a href="https://www.langchain.com/langgraph">LangGraph</a>, <a href="https://www.crewai.com">CrewAI</a>, <a href="https://github.com/microsoft/autogen">AutoGen</a>, <a href="https://platform.openai.com/docs/assistants/overview">OpenAI Assistants API</a></td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/plugins"><strong>Skills / Plugins</strong></a></td>
+<td>YC AI wrapper startups (<a href="https://reddit.com/r/ClaudeAI/comments/1r6bh4d/claude_code_skills_are_basically_yc_ai_startup/">reddit</a>)</td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<p><a id="billion-dollar-questions"></a>
+<img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\billion-dollar-questions.svg" alt="Billion-Dollar Questions"></p>
+<p><em>If you have answers, do let me know at <a href="mailto:shanraisshan@gmail.com">shanraisshan@gmail.com</a></em></p>
+<p><strong>Memory &amp; Instructions (4)</strong></p>
+<ol>
+<li>What exactly should you put inside your <a href="http://CLAUDE.html">CLAUDE.md</a> — and what should you leave out?</li>
+<li>If you already have a <a href="http://CLAUDE.html">CLAUDE.md</a>, is a separate <a href="http://constitution.html">constitution.md</a> or <a href="http://rules.html">rules.md</a> actually needed?</li>
+<li>How often should you update your <a href="http://CLAUDE.html">CLAUDE.md</a>, and how do you know when it's become stale?</li>
+<li>Why does Claude still ignore <a href="http://CLAUDE.html">CLAUDE.md</a> instructions — even when they say MUST in all caps? (<a href="https://reddit.com/r/ClaudeCode/comments/1qn9pb9/claudemd_says_must_use_agent_claude_ignores_it_80/">reddit</a>)</li>
+</ol>
+<p><strong>Agents, Skills &amp; Workflows (6)</strong></p>
+<ol>
+<li>When should you use a command vs an agent vs a skill — and when is vanilla Claude Code just better?</li>
+<li>How often should you update your agents, commands, and workflows as models improve?</li>
+<li>Should you have a generalist subagent or a feature-specific/role-specific agent? Does giving your subagent a detailed persona improve quality, and what does a &quot;perfect persona prompt&quot; for research/vision look like?</li>
+<li>Should you rely on Claude Code's built-in plan mode — or build your own planning command/agent that enforces your team's workflow?</li>
+<li>If you have a personal skill (e.g., /implement with your coding style), how do you incorporate community skills (e.g., /simplify) without conflicts — and who wins when they disagree?</li>
+<li>Are we there yet? Can we convert an existing codebase into specs, delete the code, and have AI regenerate the exact same code from those specs alone?</li>
+</ol>
+<p><strong>Specs &amp; Documentation (3)</strong></p>
+<ol>
+<li>Should every feature in your repo have a spec as a markdown file?</li>
+<li>How often do you need to update specs so they don't become obsolete when a new feature is implemented?</li>
+<li>When implementing a new feature, how do you handle the ripple effect on specs for other features?</li>
+</ol>
+<h3 id="-does-code-matter">🤔 <a href="https://github.com/shanraisshan/agentic-engineering">Does code matter?</a></h3>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="reports">REPORTS</h2>
+<p align="center">
+  <a href="reports/claude-agent-sdk-vs-cli-system-prompts.html"><img src="https://img.shields.io/badge/Agent_SDK_vs_CLI-555?style=for-the-badge" alt="Agent SDK vs CLI"></a>
+  <a href="reports/claude-in-chrome-v-chrome-devtools-mcp.html"><img src="https://img.shields.io/badge/Browser_Automation_MCP-555?style=for-the-badge" alt="Browser Automation MCP"></a>
+  <a href="reports/claude-global-vs-project-settings.html"><img src="https://img.shields.io/badge/Global_vs_Project_Settings-555?style=for-the-badge" alt="Global vs Project Settings"></a>
+  <a href="reports/claude-skills-for-larger-mono-repos.html"><img src="https://img.shields.io/badge/Skills_in_Monorepos-555?style=for-the-badge" alt="Skills in Monorepos"></a>
+  <br>
+  <a href="reports/claude-agent-memory.html"><img src="https://img.shields.io/badge/Agent_Memory-555?style=for-the-badge" alt="Agent Memory"></a>
+  <a href="reports/claude-advanced-tool-use.html"><img src="https://img.shields.io/badge/Advanced_Tool_Use-555?style=for-the-badge" alt="Advanced Tool Use"></a>
+  <a href="reports/claude-usage-and-rate-limits.html"><img src="https://img.shields.io/badge/Usage_&_Rate_Limits-555?style=for-the-badge" alt="Usage & Rate Limits"></a>
+  <a href="reports/claude-agent-command-skill.html"><img src="https://img.shields.io/badge/Agents_vs_Commands_vs_Skills-555?style=for-the-badge" alt="Agents vs Commands vs Skills"></a>
+  <br>
+  <a href="reports/llm-day-to-day-degradation.html"><img src="https://img.shields.io/badge/LLM_Degradation-555?style=for-the-badge" alt="LLM Degradation"></a>
+  <a href="reports/why-harness-is-important.html"><img src="https://img.shields.io/badge/Why_Harness_is_Important-555?style=for-the-badge" alt="Why Harness is Important"></a>
+  <a href="reports/claude-spinner-verbs-and-tips.html"><img src="https://img.shields.io/badge/Spinner_Verbs_&_Tips-555?style=for-the-badge" alt="Spinner Verbs & Tips"></a>
+</p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<p><a id="how-to-use"></a></p>
+<h2 id="-1"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\how-to-use-hd.svg" alt="How to Use"></h2>
+<p>Get the maximum out of this repo by following these steps:</p>
+<ol>
+<li><strong>Read this repo as a course, not as a workflow or skill.</strong> It's reference material first; you'll run things later.</li>
+<li><strong>Don't use Claude as a chatbot.</strong> Learn the primitives — agents, commands, skills, hooks — and assemble them into your own workflow.</li>
+<li><strong>Run <a href="orchestration-workflow/orchestration-workflow.html"><code>/weather-orchestrator</code></a></strong> to see a complete command → agent → skill flow. Use it as a template for any dev workflow, from planning to shipping.</li>
+<li><strong>Listen for the custom hook sounds while you work.</strong> Their implementation lives in the dedicated <a href="https://github.com/shanraisshan/claude-code-hooks">Claude Code Hooks repo</a>; other patterns like <a href="implementation/claude-agent-teams-implementation.html">Agent Teams</a> ship inside this repo's <code>implementation/</code> directory.</li>
+<li><strong>Learn the advanced topics and their implementations</strong> from the <a href="#-hot">🔥 Hot</a> sub-table — for example, the <a href="https://github.com/shanraisshan/ralph-wiggum-self-evolving-loop">Ralph Wiggum self-evolving loop</a> is a full working repo you can clone to see one of these patterns end-to-end.</li>
+<li><strong>Point Claude at the <a href="#-tips-and-tricks-83">tips and tricks</a> section in your own project</strong> and ask it to suggest edits — especially how to restructure your <code>CLAUDE.md</code>. Every tip is sourced from the Claude team or the community.</li>
+<li><strong>Subscribe to the Reddit and YouTube channels in the <a href="#-subscribe">Subscribe section</a></strong> to keep up with the community.</li>
+</ol>
+<p><strong>🎬 Videos</strong></p>
+<p><a href="https://www.youtube.com/watch?v=AkAhkalkRY4"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\thumbnail\video-1.png" alt="Watch on YouTube" width="240"></a>
+<a href="https://youtu.be/lPjhM6BBK0Q"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\thumbnail\video-2.png" alt="Watch on YouTube" width="240"></a></p>
+<p><strong>📊 Presentations</strong></p>
+<p><a href="https://github.com/shanraisshan/claude-code-best-practice/tree/main/presentation/2026-04-25-gdg-kolachi-cli-claude-code-gemini"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\thumbnail\presentation-1.png" alt="Claude Code & Gemini CLI — GDG Kolachi" width="240"></a></p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<p align="center">
+  <a href="https://github.com/trending?since=monthly"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\root\github-trending.png" alt="GitHub Trending" width="1200"></a><br>
+  ✨Trending on Github in March 2026✨
+</p>
+<h2 id="star-history">Star History</h2>
+<p><a href="https://star-history.com/#shanraisshan/claude-code-best-practice&amp;Date"><img src="https://api.star-history.com/svg?repos=shanraisshan/claude-code-best-practice&amp;type=Date&amp;v=2" alt="Star History Chart"></a></p>
+<p><a href="https://github.com/shanraisshan/claude-code-best-practice/stargazers"><img src="https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat&label=%E2%98%85&labelColor=555&color=white" alt="GitHub Stars" align="center"></a> stars and counting</p>
+<h2 id="other-repos">Other Repos</h2>
+<table>
+<tr>
+<td align="center" width="140">
+  <a href="https://github.com/shanraisshan/claude-code-hooks"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-speaking.svg" alt="Claude Code Hooks" width="64" height="64"></a><br>
+  <a href="https://github.com/shanraisshan/claude-code-hooks"><strong>Claude Code<br>Hooks</strong></a>
+</td>
+<td align="center" width="140">
+  <a href="https://github.com/shanraisshan/codex-cli-best-practice"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\codex-jumping.svg" alt="Codex CLI Best Practice" width="64" height="64"></a><br>
+  <a href="https://github.com/shanraisshan/codex-cli-best-practice"><strong>Codex CLI<br>Best Practice</strong></a>
+</td>
+<td align="center" width="140">
+  <a href="https://github.com/shanraisshan/codex-cli-hooks"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\codex-speaking.svg" alt="Codex CLI Hooks" width="64" height="64"></a><br>
+  <a href="https://github.com/shanraisshan/codex-cli-hooks"><strong>Codex CLI<br>Hooks</strong></a>
+</td>
+<td align="center" width="140">
+  <a href="https://github.com/shanraisshan/gemini-cli-best-practice"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\gemini-jumping.svg" alt="Gemini CLI Best Practice" width="64" height="64"></a><br>
+  <a href="https://github.com/shanraisshan/gemini-cli-best-practice"><strong>Gemini CLI<br>Best Practice</strong></a>
+</td>
+<td align="center" width="140">
+  <a href="https://github.com/shanraisshan/gemini-cli-hooks"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\gemini-speaking.svg" alt="Gemini CLI Hooks" width="64" height="64"></a><br>
+  <a href="https://github.com/shanraisshan/gemini-cli-hooks"><strong>Gemini CLI<br>Hooks</strong></a>
+</td>
+</tr>
+</table>
+<h2 id="developed-by">Developed by</h2>
+<p><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\developed-by.svg" alt="Developed by"></p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Workflow</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>/workflows:development-workflows</td>
+<td>Update the DEVELOPMENT WORKFLOWS table and cross-workflow analysis report by researching all 10 workflow repos in parallel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>/workflows:skill-collections</td>
+<td>Update the SKILL COLLECTIONS table by researching all 5 skill-collection repos in parallel</td>
+</tr>
+<tr>
+<td>3</td>
+<td>/workflows:agent-collections</td>
+<td>Update the AGENT COLLECTIONS table by researching all agent-collection repos in parallel</td>
+</tr>
+<tr>
+<td>4</td>
+<td>/workflows:best-practice:workflow-concepts</td>
+<td>Update the README CONCEPTS section with the latest Claude Code features and concepts</td>
+</tr>
+<tr>
+<td>5</td>
+<td>/workflows:best-practice:workflow-claude-settings</td>
+<td>Track Claude Code settings report changes and find what needs updating</td>
+</tr>
+<tr>
+<td>6</td>
+<td>/workflows:best-practice:workflow-claude-subagents</td>
+<td>Track Claude Code subagents report changes and find what needs updating</td>
+</tr>
+<tr>
+<td>7</td>
+<td>/workflows:best-practice:workflow-claude-commands</td>
+<td>Track Claude Code commands report changes and find what needs updating</td>
+</tr>
+<tr>
+<td>8</td>
+<td>/workflows:best-practice:workflow-claude-skills</td>
+<td>Track Claude Code skills report changes and find what needs updating</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="extras">Extras</h2>
+<p><a href="https://claude.com/contact-sales/claude-for-oss"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude-for-oss.svg" alt="Claude for OSS"></a>
+<a href="https://claude.com/community/ambassadors"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude-community-ambassador.svg" alt="Claude Community Ambassador"></a>
+<a href="https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\claude-certified-architect.svg" alt="Claude Certified Architect"></a>
+<a href="https://anthropic.skilljar.com/"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\anthropic-academy.svg" alt="Anthropic Academy"></a>
+<a href="https://chat.whatsapp.com/BDUV2stIS0c7X5uY7RY6nS"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\whatsapp-claude-pakistan.svg" alt="Join Claude Pakistan community on WhatsApp"></a></p>
+<p align="center">
+  <img src="file:///e:\AI-Tech\claude-code-best-practice\!\claude-jumping.svg" alt="section divider" width="60" height="50">
+</p>
+<h2 id="-sponsor-my-work"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\sponsor-heart.svg" width="22" height="22" align="center"> Sponsor My Work</h2>
+<p>If you like my work, buy me a doodh patti 🍵 on</p>
+<p><a href="https://buy.polar.sh/polar_cl_R6wjUESl8RiJD0iVaTyStBUV6WNuYvDmLJ0si1XXj4C"><img src="file:///e:\AI-Tech\claude-code-best-practice\!\tags\polar.svg" alt="Polar" width="40" height="40" align="center"></a> <a href="https://buy.polar.sh/polar_cl_R6wjUESl8RiJD0iVaTyStBUV6WNuYvDmLJ0si1XXj4C"><strong>Polar</strong></a></p>
+
+            
+            
+        </body>
+        </html>

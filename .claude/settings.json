@@ -68,8 +68,7 @@
   "outputStyle": "Explanatory",
   "statusLine": {
     "type": "command",
-    "command": "echo \"shayan's best practice status line\"",
-    "padding": 0
+    "command": "python -c \"import sys,json; d=json.load(sys.stdin); cw=d.get('context_window',{}); ti=cw.get('total_input_tokens',0); ws=cw.get('context_window_size',0); up=int(cw.get('used_percentage') or 0); f=lambda x: f'{x/1000000:.1f}m' if x>=1000000 else f'{x//1000}k' if x>=1000 else str(x); cu=cw.get('current_usage') or {}; ca=cu.get('cache_read_input_tokens',0); cc=cu.get('cache_creation_input_tokens',0); tc=ca+cc; cr=int(ca/tc*100) if tc>0 else None; print(f'ctx:{f(ti)}/{f(ws)} {up}%' if cr is None else f'ctx:{f(ti)}/{f(ws)} {up}% ch:{cr}% r:{f(ca)} c:{f(cc)}')\""
   },
   "attribution": {
     "commit": "Co-Authored-By: Claude <noreply@anthropic.com>",
@@ -78,7 +77,9 @@
   "spinnerTipsEnabled": true,
   "respectGitignore": true,
   "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80"
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80",
+    "HTTP_PROXY": "http://127.0.0.1:7897",
+    "HTTPS_PROXY": "http://127.0.0.1:7897"
   },
   "enableAllProjectMcpServers": true,
   "disableAllHooks": false,
