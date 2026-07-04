@@ -97,6 +97,17 @@ skills:
 | **用途** | 并行任务 | 快捷操作 | 知识注入 |
 | **配置位置** | `.claude/agents/` | `.claude/commands/` | `.claude/skills/` |
 
+### 关联文档
+
+| 相关概念 | 文档 | 说明 |
+|---------|------|------|
+| Commands（命令） | [`03-命令-commands.md`](./03-命令-commands.md) | Command 定义和 86 个内置命令参考 |
+| Skills（技能） | [`04-技能-skills.md`](./04-技能-skills.md) | Skill 定义和预加载到 Agent 的方法 |
+| MCP 服务器 | [`06-MCP服务器-mcp.md`](./06-MCP服务器-mcp.md) | 通过 `mcpServers` 为 Agent 配置外部工具 |
+| 权限模式 | [`05-设置-settings.md`](./05-设置-settings.md#二权限系统permissions) | `permissionMode` 字段的可用模式详解 |
+| 记忆系统 | [`07-记忆系统-memory.md`](./07-记忆系统-memory.md#第三层auto-memory自动记忆) | Agent 的 `memory` 字段对应的自动记忆范围 |
+| 实现参考 | [`../implementation/01-subagent-实现.md`](../implementation/01-subagent-实现.md) | 本仓库的 Subagent 实际配置示例 |
+
 ---
 
 > 下一篇：[03-命令-commands.md](./03-命令-commands.md)

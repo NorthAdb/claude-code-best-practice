@@ -102,3 +102,15 @@ CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
           │   Command → Agent → Skill    │
           └──────────────────────────────┘
 ```
+
+---
+
+### 关联文档
+
+| 相关概念 | 文档 | 说明 |
+|---------|------|------|
+| Subagent 最佳实践 | [`../practice/02-子代理-subagents.md`](../practice/02-子代理-subagents.md) | Agent Teams 是 Subagent 的进阶协作模式 |
+| Command 最佳实践 | [`../practice/03-命令-commands.md`](../practice/03-命令-commands.md) | 团队产出的 `/time-orchestrator` 命令 |
+| Skill 最佳实践 | [`../practice/04-技能-skills.md`](../practice/04-技能-skills.md) | 团队产出的 `time-fetcher`、`time-svg-creator` Skills |
+| 设置参考 | [`../practice/05-设置-settings.md`](../practice/05-设置-settings.md#六显示--ux) | `teammateMode` 显示模式配置 |
+| 学习路径 | [`../practice/10-学习路径.md`](../practice/10-学习路径.md) | Agent Teams 在第 3 周学习计划中 |

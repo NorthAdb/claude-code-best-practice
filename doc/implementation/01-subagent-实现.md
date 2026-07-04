@@ -170,3 +170,15 @@ $ claude
 | **Command** | 入口、用户交互 | [`/weather-orchestrator`](../../.claude/commands/weather-orchestrator.md) |
 | **Agent** | 用预加载 skill 获取数据 | [`weather-agent`](../../.claude/agents/weather-agent.md) + [`weather-fetcher`](../../.claude/skills/weather-fetcher/SKILL.md) |
 | **Skill** | 独立创建最终输出 | [`weather-svg-creator`](../../.claude/skills/weather-svg-creator/SKILL.md) |
+
+---
+
+### 关联文档
+
+| 相关概念 | 文档 | 说明 |
+|---------|------|------|
+| Subagent 最佳实践 | [`../practice/02-子代理-subagents.md`](../practice/02-子代理-subagents.md) | Subagent 定义、frontmatter 字段、内置 Agent 参考 |
+| Command 最佳实践 | [`../practice/03-命令-commands.md`](../practice/03-命令-commands.md) | 86 个内置命令参考表，Command vs Subagent 对比 |
+| Skill 最佳实践 | [`../practice/04-技能-skills.md`](../practice/04-技能-skills.md) | Skill 定义、设计原则，Agent Skill 模式详解 |
+| MCP 最佳实践 | [`../practice/06-MCP服务器-mcp.md`](../practice/06-MCP服务器-mcp.md) | 通过 `mcpServers` 为 Agent 配置外部工具 |
+| 编排工作流 | [`../../orchestration-workflow/orchestration-workflow.md`](../../orchestration-workflow/orchestration-workflow.md) | Command → Agent → Skill 三层架构流程图 |

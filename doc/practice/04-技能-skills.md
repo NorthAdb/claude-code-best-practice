@@ -151,6 +151,16 @@ description: 实现 REST API 端点时使用的模式
 - 始终设置 `Content-Type: application/json` 响应头
 ```
 
+### 关联文档
+
+| 相关概念 | 文档 | 说明 |
+|---------|------|------|
+| Subagents（子代理） | [`02-子代理-subagents.md`](./02-子代理-subagents.md) | 在 Agent 中用 `skills` 字段预加载 Skill |
+| Commands（命令） | [`03-命令-commands.md`](./03-命令-commands.md) | Skill 也可通过 `/命令` 调用，用法类似 Command |
+| MCP 服务器 | [`06-MCP服务器-mcp.md`](./06-MCP服务器-mcp.md) | Skill 可与 MCP 工具组合使用 |
+| 本仓库 Skill 列表 | 项目结构总览见 [`01-CONCEPTS-概念总览.md`](./01-CONCEPTS-概念总览.md#项目结构总览) | 本仓库安装了 35+ 个 Matt Pocock Skills |
+| 实现参考 | [`../implementation/03-skill-实现.md`](../implementation/03-skill-实现.md) | 本仓库 Skill 的实际配置示例 |
+
 ---
 
 > 下一篇：[05-设置-settings.md](./05-设置-settings.md)

@@ -124,6 +124,15 @@ MCP 服务器可以在三个层级定义：
 - [MCP 规范](https://modelcontextprotocol.io/)
 - [Reddit 讨论：5 个真正让我快 10 倍的 MCP](https://reddit.com/r/mcp/comments/1qarjqm/)
 
+### 关联文档
+
+| 相关概念 | 文档 | 说明 |
+|---------|------|------|
+| Settings 配置 | [`05-设置-settings.md`](./05-设置-settings.md#三mcp-服务器设置) | MCP 相关设置项详解（`enableAllProjectMcpServers` 等）|
+| Subagent | [`02-子代理-subagents.md`](./02-子代理-subagents.md) | 为 Subagent 配置专用 MCP 服务器 |
+| 项目 `.mcp.json` | 仓库根目录 `.mcp.json` | 本仓库实际使用的 MCP 配置 |
+| 实现参考 | [`../implementation/01-subagent-实现.md`](../implementation/01-subagent-实现.md) | 应用中 MCP 与 Subagent 组合的实例 |
+
 ---
 
 > 下一篇：[07-记忆系统-memory.md](./07-记忆系统-memory.md)

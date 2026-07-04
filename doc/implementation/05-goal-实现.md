@@ -84,3 +84,14 @@ $ claude
 `/goal <完成条件>` 让 Claude 跨多次对话持续工作，直到 Haiku 评估的条件成立。它与 `/loop`（基于时间）和 auto 模式（基于每次工具调用）互补。需要 Claude Code v2.1.139+。
 
 详细行为请参考[官方文档](https://code.claude.com/docs/en/goal)。
+
+---
+
+### 关联文档
+
+| 相关概念 | 文档 | 说明 |
+|---------|------|------|
+| 命令参考 | [`../practice/03-命令-commands.md`](../practice/03-命令-commands.md) | `/goal` 命令在会话类命令中的说明 |
+| 设置参考 | [`../practice/05-设置-settings.md`](../practice/05-设置-settings.md#一通用设置general-settings) | `effortLevel`、`alwaysThinkingEnabled` 等与 Goal 配合的设置 |
+| 学习路径 | [`../practice/10-学习路径.md`](../practice/10-学习路径.md) | `/goal` 在第 3 周进阶技巧中 |
+| CLI 参数 | [`../practice/08-CLI启动参数-cli-startup-flags.md`](../practice/08-CLI启动参数-cli-startup-flags.md) | `--max-turns` 等与 Goal 配合的启动参数 |
